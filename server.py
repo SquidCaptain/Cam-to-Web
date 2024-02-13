@@ -2,8 +2,6 @@ from flask import Flask, Response, render_template, url_for, redirect, request
 from flask_login import login_user, LoginManager, login_required, logout_user, current_user
 from flask_bcrypt import Bcrypt
   
-
-
 from config import Config
 from models import db, Users, Cameras
 from forms import CameraForm, LoginForm, RegisterForm, SearchForm, ChangeSettingsForm, EditCameraForm
@@ -81,6 +79,7 @@ def stream(alias, stop_event):
         print('no camera found with alias')
 
 # create_daemon(alias) creates a daemon thread for the aliased camera that the stream function lives on
+# side effect: creates a daemon thread that has a stop event in stop_events dictionary with key alias
 def create_daemon(alias):
     global stop_events
     if not (alias in stop_events):
