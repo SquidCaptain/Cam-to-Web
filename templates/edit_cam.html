@@ -1,0 +1,46 @@
+{% extends 'base_authenticated.html' %}
+{% block title %}
+Edit Camera
+{% endblock %}
+
+
+{% block body %}
+<h1>Edit Camera</h1>
+
+<!-- Navigation -->
+<a href="{{ url_for('view') }}" class="btn btn-dark">Back</a>
+<a href="{{ url_for('logout') }}" style="float: right;" class="btn btn-dark">Logout</a>
+<a href="{{ url_for('settings') }}" style="float: right;" class="btn btn-dark">Settings</a>
+
+<p>{{ message }}</p>
+<p>
+{% if form.errors %}
+{{ form.errors }}
+{% endif %}
+</p>
+
+<!-- The form -->
+<form action="{{ url_for('edit', alias=alias) }}" method="POST">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        <label class="form-lable" for="{{ form.alias.id }}">{{ form.alias.label() }}:</label>
+        {{ form.alias(class="form-control", required="required") }}
+    </div>
+    <div class="mb-3">
+        <label class="form-lable" for="{{ form.uri.id }}">{{ form.uri.label() }}:</label>
+        {{ form.uri(class="form-control", required="required") }}
+    </div>
+    <div class="mb-3">
+        <label class="form-lable" for="{{ form.width.id }}">{{ form.width.label() }}:</label>
+        {{ form.width(class="form-control", required="required") }}
+    </div>
+    <div class="mb-3">
+        <label class="form-lable" for="{{ form.height.id }}">{{ form.height.label() }}:</label>
+        {{ form.height(class="form-control", required="required") }}
+    </div>
+    <button type="submit" id="{{ form.submit.id }}" class="btn btn-dark">
+        {{ form.submit.label() }}
+    </button>
+</form>
+<a href="{{ url_for('delete', alias=alias) }}" style="float: right;" class="btn btn-red">Delete Camera</a>
+{% endblock %}

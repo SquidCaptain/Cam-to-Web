@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}
+Home
+{% endblock %}
+
+{% block body %}
+<h1>Home</h1>
+
+<!-- Navigation -->
+<a href="{{ url_for('login') }}" class="btn btn-dark">Login</a>
+
+<h2>Setup Instructions</h1>
+
+<p>1. Login using default username: username and default password: password</p>
+<p>2. Either register a new account and delete the default or change default account.</p>
+<p>3. Head to the add camera tab to add new camera.</p>
+<p>4. Route of the camera stream will be http://&lt;ip of server&gt;:&lt;port of server&gt;/video_feed/&lt;your alias&gt;</p>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base_authenticated.html' %}
+{% block title %}
+View Cameras
+{% endblock %}
+
+{% block body %}
+<h1>Cameras</h1>
+
+<!-- Navigation -->
+<a href="{{ url_for('add') }}" class="btn btn-dark">Add Camera</a>
+<a href="{{ url_for('logout') }}" style="float: right;" class="btn btn-dark">Logout</a>
+<a href="{{ url_for('settings') }}" style="float: right;" class="btn btn-dark">Settings</a>
+
+<!-- The form -->
+<form action="{{ url_for('view') }}" method="POST">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        <label class="form-lable" for="{{ form.search.id }}">{{ form.search.label() }}:</label>
+        {{ form.search(class="form-control", required="required", placeholder="alias") }}
+    </div>
+    <button type="submit" id="{{ form.submit.id }}" class="btn btn-dark">
+        {{ form.submit.label() }}
+    </button>
+</form>
+
+<!-- Camera List -->
+{% for camera in cameras %}
+<li>{{camera}}</li>
+{% endfor %}
+{% endblock %}

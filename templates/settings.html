@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}
+Settings
+{% endblock %}
+{% block topnav %}
+{% endblock %}
+{% block body %}
+<h1>Edit User Settings</h1>
+
+<!-- Navigation -->
+<a href="{{ url_for('view') }}" class="btn btn-dark">Cameras</a>
+<a href="{{ url_for('logout') }}" style="float: right;" class="btn btn-dark">Logout</a>
+<a href="{{ url_for('settings') }}" style="float: right;" class="btn btn-dark">Settings</a>
+
+<p>{{ message }}</p>
+<p>
+    {% if form.errors %}
+    {{ form.errors }}
+    {% endif %}
+</p>
+
+<!-- The form -->
+<form action="{{ url_for('settings') }}" method="POST">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        <label class="form-lable" for="{{ form.username.id }}">{{ form.username.label() }}:</label>
+        {{ form.username(class="form-control", required="required") }}
+    </div>
+    <div class="mb-3">
+        <label class="form-lable" for="{{ form.old_password.id }}">{{ form.old_password.label() }}:</label>
+        {{ form.old_password(class="form-control", required="required") }}
+    </div>
+    <div class="mb-3">
+        <label class="form-lable" for="{{ form.new_password.id }}">{{ form.new_password.label() }}:</label>
+        {{ form.new_password(class="form-control", required="required") }}
+    </div>
+    <div class="mb-3">
+        <label class="form-lable" for="{{ form.confirm.id }}">{{ form.confirm.label() }}:</label>
+        {{ form.confirm(class="form-control", required="required") }}
+    </div>
+    <button type="submit" id="{{ form.submit.id }}" class="btn btn-dark">
+        {{ form.submit.label() }}
+    </button>
+    </form>
+{% endblock %}
