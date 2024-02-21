@@ -15,7 +15,7 @@ The project came from a need for a demo embeddable live stream for a rtsp protoc
 
 ## Checklist
 
-### Checklist (initial functionality)
+### Checklist (Alpha)
 - [x] Database models
 - [x] Form models
 - [x] Routes finished
@@ -34,3 +34,14 @@ The project came from a need for a demo embeddable live stream for a rtsp protoc
   - [x] Template html
   - [x] Bootstrap
   - [x] Custom CSS
+
+### Checklist (Beta)
+- [x] Docker
+  - [x] Docker Files
+  - [ ] Docker Hub
+- [ ] Beta test
+  - [ ] Collect test results
+  - [ ] More features?
+
+### Checklist (Full Release)
+
