@@ -209,9 +209,11 @@ def register():
 def login():
     message = "Log in"
     form = LoginForm()
+    if current_user.is_authenticated:
+        return redirect(url_for('view')) 
     if form.validate_on_submit():
         user = Users.query.filter_by(username=form.username.data).first()
-        if bcrypt.check_password_hash(user.password, form.password.data):
+        if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user)
             return redirect(url_for('view'))
         else:
