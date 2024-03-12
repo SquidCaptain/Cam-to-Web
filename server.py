@@ -300,6 +300,6 @@ if __name__ == '__main__':
 	    host=args["ip"],
         threaded=True, 
         use_reloader=False,
-	    debug=True,
+	    debug=False,
 	    port=args["port"]
     )
