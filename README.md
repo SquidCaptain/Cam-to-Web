@@ -8,8 +8,9 @@ The project came from a need for a demo embeddable live stream for a rtsp protoc
 install docker and docker-compose
 pull docker image using
 ```
-docker pull squidcaptain/cam_to_web
+docker pull squidcaptain/cam_to_web:0.1
 ```
+(Note: check latest version on docker hub and change 0.1 to latest version if possible)
 create docker-compose.yml copy and paste
 ```
 version: "3"
