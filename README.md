@@ -4,6 +4,29 @@ A web server that allows users to add live streams then embed the streams into a
 ## Motivation
 The project came from a need for a demo embeddable live stream for a rtsp protocol camera feed on eyesonic.com.
 
+## Setup Guide
+install docker and docker-compose
+pull docker image using
+```
+docker pull squidcaptain/cam_to_web
+```
+create docker-compose.yml copy and paste
+```
+version: "3"
+services:
+  web:
+    image: squidcaptain/cam_to_web:0.1
+    ports:
+      - 8000:8000
+    volumes:
+        - ./cam-to-web-db:/usr/src/app/cam-to-web-db
+```
+into docker-compose.yml, cd to where docker-compose.yml is, and run
+```
+docker-compose up
+```
+the server should start running on port 8000
+
 ## Technologies used
 - Python
 - Flask
@@ -38,7 +61,7 @@ The project came from a need for a demo embeddable live stream for a rtsp protoc
 ### Checklist (Beta)
 - [x] Docker
   - [x] Docker Files
-  - [ ] Docker Hub
+  - [x] Docker Hub
 - [ ] Beta test
   - [ ] Collect test results
   - [ ] More features?
